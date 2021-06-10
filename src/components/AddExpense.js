@@ -1,6 +1,6 @@
 import { Fragment, useRef } from 'react';
 import { Form, Card , Button} from 'react-bootstrap';
-import { useSelector, useDispatch } from 'react-redux'
+import {  useDispatch } from 'react-redux'
 import {expenseActions} from '../store/expense';
 
 const AddExpense = () => {
@@ -8,7 +8,7 @@ const AddExpense = () => {
     const expenseRef = useRef();
     const amountRef = useRef();
     const dateRef = useRef();
-    const totalAmount = useSelector((state) => state.expense.totalAmount);
+    
 
     const dispatch = useDispatch()
 
