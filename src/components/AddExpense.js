@@ -2,6 +2,7 @@ import { Fragment, useRef } from 'react';
 import { Form, Card , Button} from 'react-bootstrap';
 import {  useDispatch } from 'react-redux'
 import {expenseActions} from '../store/expense';
+import {notificationActions} from '../store/notification';
 
 const AddExpense = () => {
 
@@ -20,8 +21,16 @@ const AddExpense = () => {
             date: dateRef.current.value,
             id: Date.now()
         }
+        let notification={
+            status:"success",
+            title:"Notification sent!",
+            message : `Expense with Id ${expense.id} Added!`
+        }
 
         dispatch(expenseActions.addExpense(expense))
+       
+        dispatch(notificationActions.showNotification(notification))
+        
         expenseRef.current.value="";
         amountRef.current.value=0;
         dateRef.current.value="";
